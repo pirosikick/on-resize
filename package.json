@@ -1,0 +1,38 @@
+{
+  "name": "on-resize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirosikick/on-resize.git"
+  },
+  "files": [
+    "lib",
+    "package.json"
+  ],
+  "keywords": [
+    "React"
+  ],
+  "author": "Hiroyuki ANAI <pirosikick@gmail.com>",
+  "license": {
+    "type": "MIT",
+    "url": "http://pirosikick.mit-license.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/pirosikick/on-resize/issues"
+  },
+  "homepage": "https://github.com/pirosikick/on-resize#readme",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "espower-babel": "^3.2.0",
+    "mocha": "^2.2.5",
+    "power-assert": "^0.11.0",
+    "react": "^0.13.3"
+  },
+  "scripts": {
+    "test": "npm run babel && mocha --compilers js:espower-babel/guess test/**/*.js",
+    "babel": "mkdir -p lib && babel src -d lib",
+    "babel-watch": "mkdir -p lib && babel -w src -d lib"
+  }
+}

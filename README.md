@@ -37,7 +37,7 @@ class Example extends Component {
 React.render(<Example><h1>Hello</h1></Example>, document.body);
 ```
 
-If you want to customize that prop name or value, you can 
+If you want to customize that prop name or value, you can pass function or use `select` option:
 
 ```javascript
 @onResize((props) => ({

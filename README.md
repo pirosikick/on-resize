@@ -3,8 +3,8 @@ on-resize
 
 [![npm package](https://nodei.co/npm/on-resize.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/on-resize/)
 
-[![Build status](https://img.shields.io/travis/on-resize/on-resize.svg?style=flat-square)](https://travis-ci.org/on-resize/on-resize)
-[![Dependency Status](https://img.shields.io/david/on-resize/on-resize.svg?style=flat-square)](https://david-dm.org/on-resize/on-resize)
+[![Build status](https://img.shields.io/travis/pirosikick/on-resize.svg?style=flat-square)](https://travis-ci.org/pirosikick/on-resize)
+[![Dependency Status](https://img.shields.io/david/pirosikick/on-resize.svg?style=flat-square)](https://david-dm.org/pirosikick/on-resize)
 
 ES7 Decorator for React, which is useful on resize event.
 

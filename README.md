@@ -20,7 +20,7 @@ $ npm install --save on-resize
 
 ```javascript
 import {Component} from "react";
-import onResize from "on-resize/react/decorator";
+import {decorator as onResize} from "on-resize/react";
 
 @onResize()
 class Example extends Component {

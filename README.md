@@ -6,7 +6,7 @@ on-resize
 [![Build status](https://img.shields.io/travis/pirosikick/on-resize.svg?style=flat-square)](https://travis-ci.org/pirosikick/on-resize)
 [![Dependency Status](https://img.shields.io/david/pirosikick/on-resize.svg?style=flat-square)](https://david-dm.org/pirosikick/on-resize)
 
-ES7 Decorator for React, which is useful on resize event.
+ES7 Decorator & Higher-Order Component for React, which is useful on resize event.
 
 ## Installation
 
@@ -19,11 +19,11 @@ $ npm install --save on-resize
 ### ES7 Decorator
 
 ```javascript
-import {Component} from "react";
-import {decorator as onResize} from "on-resize/react";
+import React from "react";
+import {onResize} from "on-resize/react";
 
 @onResize()
-class Example extends Component {
+class Example extends React.Component {
   render () {
     // By default, when window.onresize emits, passes following props:
     //  `width`  : window.innerWidth - this.props.offsetWidth
@@ -55,10 +55,32 @@ If you want to customize that prop name or value, you can pass function or use `
 })
 ```
 
+### Higher-Order Component
+
+```javascript
+function bindOnResize(Component, options = {Function|Object})
+```
+
+```javascript
+import React from "react";
+import {bindOnResize} from "on-resize/react";
+
+class Example extends Component {
+  render () {
+    let {width, height, children} = this.props;
+    return <div style={{ width, height }}>{children}</div>;
+  }
+}
+
+Example = bindOnResize(Example)
+
+React.render(<Example><h1>Hello</h1></Example>, document.body);
+```
+
 ## Todo
 
 - [ ] Add tests more
-- [ ] Support Higher-Order Component
+- [X] Support Higher-Order Component
 - [ ] Support other Virtual DOM libraries
 
 ## License

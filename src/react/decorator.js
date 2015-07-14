@@ -1,19 +1,5 @@
+import {create as createOptions} from "./options";
 import {Component as ReactComponent} from "react";
-
-const defaultOptions = {
-  select: (props) => ({
-    width: window.innerWidth - ((props.offsetWidth - 0) || 0),
-    height: window.innerHeight - ((props.offsetHeight - 0) || 0),
-  }),
-  eventTarget: typeof(window) === 'object' ? window : false,
-  callOnMounted: true,
-  bind: (target, listener) => {
-    target && target.addEventListener('resize', listener, false);
-  },
-  unbind: (target, listener) => {
-    target && target.removeEventListener('resize', listener, false);
-  }
-};
 
 /**
  * @onResize()
@@ -24,13 +10,13 @@ const defaultOptions = {
  *   callOnMounted: true
  * })
  */
-export default function onResizeDecorator (arg) {
+export default function onResize (arg) {
   let options;
 
   if (typeof(arg) === 'object') {
     options = arg;
   } else {
-    options = Object.create(defaultOptions);
+    options = createOptions();
 
     if (typeof(arg) === 'function') {
       options.select = arg;

@@ -1,6 +1,6 @@
 {
   "name": "on-resize",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "lib/index.js",
   "repository": {
@@ -9,6 +9,7 @@
   },
   "files": [
     "lib",
+    "react.js",
     "package.json"
   ],
   "keywords": [
@@ -32,7 +33,9 @@
   },
   "scripts": {
     "test": "npm run babel && mocha --compilers js:espower-babel/guess test/**/*.js",
-    "babel": "mkdir -p lib && babel src -d lib",
-    "babel-watch": "mkdir -p lib && babel -w src -d lib"
+    "build": "npm run babel && mv lib/entry-react.js react.js",
+    "babel": "rm -rf lib && babel src -d lib",
+    "babel-watch": "rm -rf lib && babel -w src -d lib",
+    "deploy": "npm run build && npm publish"
   }
 }

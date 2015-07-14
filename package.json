@@ -1,7 +1,7 @@
 {
   "name": "on-resize",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.4",
+  "description": "ES7 Decorator for React, which is useful on resize event.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",

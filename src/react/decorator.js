@@ -1,5 +1,5 @@
-import {create as createOptions} from "./options";
-import {Component as ReactComponent} from "react";
+import { create as createOptions } from './options';
+import React, { Component as ReactComponent } from 'react';
 
 /**
  * @onResize()
@@ -10,50 +10,55 @@ import {Component as ReactComponent} from "react";
  *   callOnMounted: true
  * })
  */
-export default function onResize (arg) {
+export default function onResize(arg) {
   let options;
 
-  if (typeof(arg) === 'object') {
+  if (typeof (arg) === 'object') {
     options = arg;
   } else {
     options = createOptions();
 
-    if (typeof(arg) === 'function') {
+    if (typeof (arg) === 'function') {
       options.select = arg;
     }
   }
 
-  let {select, eventTarget, callOnMounted, bind, unbind} = options;
+  const { select, eventTarget, callOnMounted, bind, unbind } = options;
 
   return function (Component) {
     class WrappedComponent extends ReactComponent {
-      constructor (props) {
+      constructor(props) {
         super(props);
 
-        this.state = { selected: {} };
-        this._onWindowResize = this.onWindowResize.bind(this);
+        this.state = {
+          selected: {},
+        };
       }
 
-      onWindowResize () {
-        this.setState({ selected: select(this.props) });
+      onWindowResize = () => {
+        this.setState({
+          selected: select(this.props),
+        });
       }
 
-      componentDidMount () {
-        bind(eventTarget, this._onWindowResize);
+      componentDidMount() {
+        bind(eventTarget, this.onWindowResize);
 
-        if (callOnMounted) this._onWindowResize();
+        if (callOnMounted) {
+          this.onWindowResize();
+        }
       }
 
-      componentWillUnmount () {
-        unbind(eventTarget, this._onWindowResize);
+      componentWillUnmount() {
+        unbind(eventTarget, this.onWindowResize);
       }
 
-      render () {
-        let {selected} = this.state;
+      render() {
+        const { selected } = this.state;
         return <Component {...this.props} {...selected} />;
       }
     }
 
     return WrappedComponent;
-  }
+  };
 }

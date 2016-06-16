@@ -5,15 +5,10 @@ export const defaultOptions = {
   }),
   eventTarget: typeof(window) === 'object' ? window : false,
   callOnMounted: true,
-  bind: (target, listener) => {
-    target && target.addEventListener('resize', listener, false);
-  },
-  unbind: (target, listener) => {
-    target && target.removeEventListener('resize', listener, false);
-  }
+  bind: (target, listener) => target && target.addEventListener('resize', listener, false),
+  unbind: (target, listener) => target && target.removeEventListener('resize', listener, false),
 };
 
-export function create () {
+export function create() {
   return Object.create(defaultOptions);
 }
-
